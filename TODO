@@ -1,0 +1,7 @@
+TODO
+====================================
+
+* Fix crash when service is not able to resolve hostnames.
+* Fix client (for tests - broken at the moment)
+* add traceroute endpoint (change project name to network-analysis-microservice-go)
+* be able to send couple of icmp package and calculate the average.
