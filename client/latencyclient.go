@@ -17,6 +17,6 @@ func (tc *LatencyClient) PingHost() (api.Latency, error) {
 	if err != nil {
 		return respLatency, err
 	}
-	err = processResponseEntity(r, &respLatency, 201)
+	err = processResponseEntity(r, &respLatency, 200)
 	return respLatency, err
 }
