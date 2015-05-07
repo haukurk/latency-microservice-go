@@ -6,7 +6,7 @@ clean:
 
 build:
 	cd cmd/server; \
-	go get; \
+	go get
 	cd cmd/server; \
 	go build
 	cd cmd/latency-cli; \
