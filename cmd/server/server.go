@@ -27,7 +27,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "latency-go"
 	app.Usage = "Analyse latency with Go"
-	app.Version = "0.0.1"
+	app.Version = "0.2.0"
 
 	app.Flags = []cli.Flag{
 		cli.StringFlag{"config", "config.json", "config file (json format) to use", "APP_CONFIG"},

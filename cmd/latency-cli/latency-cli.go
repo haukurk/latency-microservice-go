@@ -14,7 +14,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "latency cli"
 	app.Usage = "cli to work with the latency service"
-	app.Version = "0.0.1"
+	app.Version = "0.2.0"
 
 	app.Flags = []cli.Flag{
 		cli.StringFlag{"host", "http://localhost:8080", "Hostname for latency API", "APP_HOST"},
