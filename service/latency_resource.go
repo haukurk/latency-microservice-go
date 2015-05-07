@@ -1,14 +1,11 @@
 package service
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/haukurk/latency-microservice-go/api"
 	"github.com/tatsushid/go-fastping"
-	"log"
 	"net"
 	"net/http"
-	"os"
 	"time"
 )
 
@@ -19,32 +16,35 @@ func (lr *LatencyResource) LatencyHost(context *gin.Context) {
 	var latencyResp api.Latency
 
 	ip := context.Params.ByName("host")
-	p := fastping.NewPinger()
 	ra, err := net.ResolveIPAddr("ip4:icmp", ip)
 
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		context.JSON(http.StatusNotFound, api.NewError("cannot resolve remote address"))
+	} else {
+		p := fastping.NewPinger()
+		p.AddIPAddr(ra)
+
+		// Only Single ICMP packet here.
+		p.OnRecv = func(addr *net.IPAddr, rtt time.Duration) {
+			latencyResp.IP = addr.String()
+			latencyResp.RTT = rtt
+			latencyResp.UNIT = "ms"
+			latencyResp.STATUS = "ok"
+		}
+
+		p.OnIdle = func() {
+		}
+
+		err = p.Run()
+
+		if err != nil {
+			context.JSON(http.StatusBadRequest, api.NewError(err.Error()))
+		} else if latencyResp.STATUS != "ok" {
+			context.JSON(http.StatusBadRequest, api.NewError("remote peer not answering or address bogus"))
+		} else {
+			context.JSON(http.StatusOK, latencyResp)
+		}
+
 	}
 
-	p.AddIPAddr(ra)
-
-	p.OnRecv = func(addr *net.IPAddr, rtt time.Duration) {
-		latencyResp.IP = addr.String()
-		latencyResp.RTT = rtt
-		latencyResp.UNIT = "ms"
-		latencyResp.STATUS = "ok"
-	}
-
-	p.OnIdle = func() {
-		log.Printf("log idle")
-	}
-
-	err = p.Run()
-
-	if err != nil {
-		context.JSON(http.StatusBadRequest, gin.H{"status": "fail", "message": err})
-	}
-
-	context.JSON(http.StatusOK, latencyResp)
 }
