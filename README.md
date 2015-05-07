@@ -38,16 +38,15 @@ cmd/latency-cli/latency-cli --host $HOSTNAME -r $HOSTTOCHECKLATENCY
 
 # Endpoint specifications
 
-/GET /ping/<string:hostname>
+/GET /latency/<string:hostname>
 Returns:
 
 200 OK
 ```
 {
   "ip": "74.125.136.138",
-  "rtt": 4,
+  "rtt": 4.243ms,
   "status": "ok",
-  "unit":"ms"
 }
 
 ```
@@ -55,4 +54,7 @@ Returns:
 # Considerations
 
 The ICMP library uses raw sockets, therefore needs root privileges to function properly.
+
+*I discourage using this as a public service.*
+
 Make sure to run tests before using.
