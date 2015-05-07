@@ -8,4 +8,4 @@ go:
   - 1.4
   - tip
 script:
- - make test 
+ - sudo make test 
