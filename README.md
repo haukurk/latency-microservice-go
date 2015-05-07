@@ -55,6 +55,6 @@ Returns:
 
 The ICMP library uses raw sockets, therefore needs root privileges to function properly.
 
-*I discourage using this as a public service.*
+*I discourage users using this as a public service.*
 
 Make sure to run tests before using.
