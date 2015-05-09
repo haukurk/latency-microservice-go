@@ -6,6 +6,4 @@ install:
 go:
   - 1.3
   - 1.4
-  - tip
 script:
- - sudo sh ./ci/runtests.sh 
