@@ -1,6 +1,6 @@
 #!/bin/sh
-export GOROOT=$1
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+pwd
 ./cmd/server/server --config config.json server & \
 pid=$$!; \
-go test 
+gobin=$1
+$gobin test 
