@@ -8,5 +8,4 @@ go:
   - 1.4
   - tip
 script:
-  - echo $GOROOT
-  - sudo sh ./ci/runtests.sh `which go` -c "export GOROOT=$HOME/gopath; $HOME/gopath/src/github.com/haukurk/latency-microservice-go"
+  - sudo sh ./ci/runtests.sh `which go` `echo $GOROOT` -c "export GOROOT=$HOME/gopath; $HOME/gopath/src/github.com/haukurk/latency-microservice-go"
