@@ -8,4 +8,4 @@ go:
   - 1.4
   - tip
 script:
- - sudo sh ./ci/runtests.sh $HOME/gopath/bin -c "cd $HOME/gopath/src/github.com/haukurk/latency-microservice-go"
+  - sudo sh ./ci/runtests.sh -c "$HOME/gopath/src/github.com/haukurk/latency-microservice-go"
