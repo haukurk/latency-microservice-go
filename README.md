@@ -16,6 +16,11 @@ Building solution:
 make deps && make 
 ```
 
+Installing to GOPATH bin folder:
+```
+make install
+```
+
 Run tests
 ```
 make test
