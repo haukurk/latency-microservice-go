@@ -38,7 +38,7 @@ cmd/server/server --config config.json
 The solution includes a CLI client that offers you to create a request from your command-line, like such:
 
 ```
-cmd/latency-cli/latency-cli --host $HOSTNAME -r $HOSTTOCHECKLATENCY
+cmd/latency-cli/latency-cli --host $HOSTNAME -r $HOSTTOCHECKLATENCY client
 ```
 
 
@@ -57,18 +57,6 @@ cmd/latency-cli/latency-cli --host $HOSTNAME -r $HOSTTOCHECKLATENCY
 
 ```
 
-<<<<<<< HEAD
-# Dockerization
-
-Create a Docker Image from solutions definiation:
-```
-docker build -t latency-microservice-go .
-```
-
-Create a container instance named latency-server:
-```
-docker run -d --publish 7801:7801 --name latency-server latency-microservice-go
-=======
 404 NOT FOUND
 ```
 {
@@ -80,6 +68,7 @@ docker run -d --publish 7801:7801 --name latency-server latency-microservice-go
 /GET /stats
 
 200 OK
+
 ```
 {
   "pid":1953,
@@ -96,7 +85,18 @@ docker run -d --publish 7801:7801 --name latency-server latency-microservice-go
   "average_response_time":"1.049890717s",
   "average_response_time_sec":1.049890717
 }
->>>>>>> f27a17131a47866b72a52b331e515bd6b798d006
+```
+
+# Dockerization
+
+Create a Docker Image from solutions definiation:
+```
+docker build -t latency-microservice-go .
+```
+
+Create a container instance named latency-server:
+```
+docker run -d --publish 7801:7801 --name latency-server latency-microservice-go
 ```
 
 # Considerations
