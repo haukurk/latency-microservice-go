@@ -27,7 +27,7 @@ func (lr *LatencyResource) LatencyHost(context *gin.Context) {
 		// Only Single ICMP packet here.
 		p.OnRecv = func(addr *net.IPAddr, rtt time.Duration) {
 			latencyResp.IP = addr.String()
-			latencyResp.RTT = rtt
+			latencyResp.RTT = rtt.Seconds() * float64(time.Second/time.Millisecond)
 			latencyResp.UNIT = "ms"
 			latencyResp.STATUS = "ok"
 		}
