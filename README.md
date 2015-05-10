@@ -37,10 +37,9 @@ cmd/latency-cli/latency-cli --host $HOSTNAME -r $HOSTTOCHECKLATENCY
 ```
 
 
-# Endpoint specifications
+# JSON specifications (Examples)
 
 /GET /latency/<string:hostname>
-Returns:
 
 200 OK
 ```
@@ -51,6 +50,35 @@ Returns:
   "unit": "ms"
 }
 
+```
+
+404 NOT FOUND
+```
+{
+  "error":"cannot resolve remote address",
+  "status":"fail"
+}
+```
+
+/GET /stats
+
+200 OK
+```
+{
+  "pid":1953,
+  "uptime":"1h42m44.212770594s",
+  "uptime_sec":6164.212770594,
+  "time":"2015-05-10 10:33:17.482820233 -0400 EDT",
+  "unixtime":1431268397,
+  "status_code_count":{},
+  "total_status_code_count":{"200":4},
+  "count":0,
+  "total_count":4,
+  "total_response_time":"4.199562871s",
+  "total_response_time_sec":4.199562871,
+  "average_response_time":"1.049890717s",
+  "average_response_time_sec":1.049890717
+}
 ```
 
 # Considerations
