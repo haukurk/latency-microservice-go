@@ -28,9 +28,9 @@ To start-up the service use:
 cmd/server/server --config config.json
 ```
 
-# Client library
+# Client
 
-The solution includes a client library to interact with the service.
+The solution includes a CLI client that offers you to create a request from your command-line, like such:
 
 ```
 cmd/latency-cli/latency-cli --host $HOSTNAME -r $HOSTTOCHECKLATENCY
