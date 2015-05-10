@@ -12,7 +12,7 @@ RUN go get github.com/haukurk/latency-microservice-go/cmd/latency-server
 RUN go install github.com/haukurk/latency-microservice-go/cmd/latency-server
 
 # Run the outyet command by default when the container starts.
-ENTRYPOINT /go/bin/latency-server --config /root/workspace-go/src/github.com/haukurk/latency-microservice-go/config.json config.json server
+ENTRYPOINT /go/bin/latency-server --config /go/src/github.com/haukurk/latency-microservice-go/config.json server
 
 # Document that the service listens on port 7801.
 EXPOSE 7801 

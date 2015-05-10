@@ -57,6 +57,18 @@ Returns:
 
 ```
 
+# Dockerization
+
+Create a Docker Image from solutions definiation:
+```
+docker build -t latency-microservice-go .
+```
+
+Create a container instance named latency-server:
+```
+docker run -d --publish 7801:7801 --name latency-server latency-microservice-go
+```
+
 # Considerations
 
 The ICMP library uses raw sockets, therefore needs root privileges to function properly.
