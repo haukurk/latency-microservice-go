@@ -7,7 +7,4 @@ go:
   - 1.3
   - 1.4
 script:
-<<<<<<< HEAD
   - sudo sh ./ci/runtests.sh `echo $GOROOT` -c "cd $HOME/gopath/src/github.com/haukurk/latency-microservice-go; export GOPATH=$GOPATH"
-=======
->>>>>>> 2c50e308b5b49a8211e99a1dfa409ccec5ac6954
