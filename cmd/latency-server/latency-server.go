@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/codegangsta/cli"
+	"github.com/urfave/cli"
 	"github.com/haukurk/latency-microservice-go/service"
 )
 
@@ -30,7 +30,7 @@ func main() {
 	app.Version = "0.2.0"
 
 	app.Flags = []cli.Flag{
-		cli.StringFlag{"config", "config.json", "config file (json format) to use", "APP_CONFIG"},
+		cli.StringFlag{Name: "config", Value: "config.json", Usage: "config file (json format) to use", EnvVar: "APP_CONFIG"},
 	}
 
 	app.Commands = []cli.Command{

@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/codegangsta/cli"
+	"github.com/urfave/cli"
 	"github.com/haukurk/latency-microservice-go/client"
 )
 
@@ -17,8 +17,8 @@ func main() {
 	app.Version = "0.2.0"
 
 	app.Flags = []cli.Flag{
-		cli.StringFlag{"host", "http://localhost:8080", "Hostname for latency API", "APP_HOST"},
-		cli.StringFlag{"remotehost", "8.8.8.8", "Host to check latency to", "APP_REMOTE_HOST"},
+		cli.StringFlag{Name: "host", Value: "http://localhost:8080", Usage: "Hostname for latency API", EnvVar: "APP_HOST"},
+		cli.StringFlag{Name: "remotehost", Value: "8.8.8.8", Usage: "Host to check latency to", EnvVar: "APP_REMOTE_HOST"},
 	}
 
 	app.Commands = []cli.Command{

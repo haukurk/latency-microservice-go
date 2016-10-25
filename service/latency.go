@@ -3,7 +3,6 @@ package service
 import (
 	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/thoas/stats"
@@ -24,9 +23,9 @@ func (s *LatencyService) Run(cfg Config) error {
 
 	router.Use(func() gin.HandlerFunc {
 		return func(c *gin.Context) {
-			beginning := time.Now()
+			beginning, recorder := Stats.Begin(c.Writer)
 			c.Next()
-			Stats.End(beginning, c.Writer)
+			Stats.End(beginning, recorder)
 		}
 	}())
 
