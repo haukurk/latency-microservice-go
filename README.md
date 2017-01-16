@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/haukurk/latency-microservice-go.svg?branch=master)](https://travis-ci.org/haukurk/latency-microservice-go)
+[![Docker Stars](https://img.shields.io/docker/stars/haukurk/latency-server.svg)]()
+[![Docker Pulls](https://img.shields.io/docker/pulls/haukurk/latency-server.svg)]()
+
 Latency Analyser Microservice
 =================
 
@@ -87,16 +90,23 @@ cmd/latency-cli/latency-cli --host $HOSTNAME -r $HOSTTOCHECKLATENCY client
 }
 ```
 
-# Dockerization
+# Dockerization 
 
-Create a Docker Image from solutions definiation:
+Pull from Docker registry
+```
+docker pull haukurk/latency-server:latest 
+```
+
+Or
+
+Create a Docker Image from solutions definition:
 ```
 docker build -t latency-microservice-go .
 ```
 
 Create a container instance named latency-server:
 ```
-docker run -d --publish 7801:7801 --name latency-server latency-microservice-go
+docker run -d --publish 7801:7801 --name latency-server [latency-microservice-go or image id from docker registry]
 ```
 
 # Considerations
